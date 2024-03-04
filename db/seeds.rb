@@ -66,17 +66,17 @@ move_csv = Rails.root.join("db/moves.csv")
 move_csv_data = File.read(move_csv)
 moves = CSV.parse(move_csv_data, headers: true, encoding: "utf-8")
 
-move_description_csv = Rails.root.join("db/pokemon_species_flavor_text.csv")
+move_description_csv = Rails.root.join("db/move_flavor_text.csv")
 move_description_csv_data = File.read(move_description_csv)
 move_descriptions = CSV.parse(move_description_csv_data, headers: true, encoding: "utf-8")
 
-moves.first(165)each do |move|
+moves.first(165).each do |move|
   type = Type.find_by(id: move['type_id'])
 
   if type
     new_move = type.moves.new
-    new_move.id = moves['id']
-    new_move.name = moves['identifier']
+    new_move.id = move['id']
+    new_move.name = move['identifier']
 
     move_description = move_descriptions.find do |description|
       description['move_id'].to_i == move['id'].to_i &&
@@ -85,12 +85,17 @@ moves.first(165)each do |move|
     end
 
     new_move.description = move_description['flavor_text']
-    new_move.power = moves['power']
-    new_move.accuracy = moves['accuracy']
+    new_move.power = move['power'].to_i
+    new_move.accuracy = move['accuracy'].to_i
+    new_move.pp = move['pp'].to_i
     new_move.move_category = case move['damage_class_id'].to_i
                                 when 1 then "Status"
                                 when 2 then "Physical"
                                 when 3 then "Special"
                               end
+  end
+
+  unless new_move.save
+    puts "Invalid Move #{move['id']}"
   end
 end
