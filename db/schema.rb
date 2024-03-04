@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_032144) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_043028) do
   create_table "abilities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -20,7 +20,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_032144) do
 
   create_table "moves", force: :cascade do |t|
     t.string "name"
-    t.string "description"
     t.integer "power"
     t.integer "accuracy"
     t.string "move_category"
