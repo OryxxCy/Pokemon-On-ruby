@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  power: 1
+  accuracy: 1
+  move_category: MyString
+  type: one
+
+two:
+  name: MyString
+  description: MyString
+  power: 1
+  accuracy: 1
+  move_category: MyString
+  type: two
