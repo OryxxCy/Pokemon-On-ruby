@@ -14,10 +14,6 @@ pokemond_description_csv = Rails.root.join("db/pokemon_species_flavor_text.csv")
 pokemond_description_csv_data = File.read(pokemond_description_csv)
 pokemon_descriptions = CSV.parse(pokemond_description_csv_data, headers: true, encoding: "utf-8")
 
-stat_csv = Rails.root.join("db/stats.csv")
-stat_csv_data = File.read(stat_csv)
-stats = CSV.parse(stat_csv_data, headers: true, encoding: "utf-8")
-
 pokemond_stats_csv = Rails.root.join("db/pokemon_stats.csv")
 pokemond_stats_csv_data = File.read(pokemond_stats_csv)
 pokemond_stats = CSV.parse(pokemond_stats_csv_data, headers: true, encoding: "utf-8")
@@ -55,3 +51,12 @@ pokemons.first(151).each do |pokemon|
   end
 end
 
+type_csv = Rails.root.join("db/types.csv")
+type_csv_data = File.read(type_csv)
+types = CSV.parse(type_csv_data, headers: true, encoding: "utf-8")
+
+types.first(18).each do |type|
+  new_type = Type.create(name: type['identifier'])
+
+  puts "Invalid Type" unless new_type&.valid?
+end
