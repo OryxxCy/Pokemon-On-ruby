@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_043028) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_045106) do
   create_table "abilities", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_043028) do
     t.integer "type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["type_id"], name: "index_moves_on_type_id"
   end
 
