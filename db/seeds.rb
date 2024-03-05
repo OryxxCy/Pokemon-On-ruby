@@ -124,7 +124,7 @@ pokemon_moves.each do |pokemon_move|
   pokemon = Pokemon.find_by(id: pokemon_move['pokemon_id'].to_i)
   move = Move.find_by(id: pokemon_move['move_id'].to_i)
 
-  if pokemon && move
+  if pokemon && move && pokemon_move['version_group_id'].to_i == 1
     new_pokemon_move = PokemonMove.create(
       pokemon_id: pokemon.id,
       move_id: move.id

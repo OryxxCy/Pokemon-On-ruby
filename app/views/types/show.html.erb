@@ -1,2 +1,31 @@
-<h1>Types#show</h1>
-<p>Find me in app/views/types/show.html.erb</p>
+<h1>
+  <%= @type.name%>
+</h1>
+<h2>
+  Pokemons
+</h2>
+<ul>
+  <% if @pokemon_types.present? %>
+    <% @pokemon_types.each do |pokemon_type| %>
+      <li>
+        <%= link_to pokemon_type.pokemon.name, pokemon_type.pokemon %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>None</li>
+  <% end %>
+</ul>
+<h2>
+  Moves
+</h2>
+<ul>
+  <% if @pokemon_moves.present? %>
+    <% @pokemon_moves.each do |pokemon_move| %>
+      <li>
+        <%= link_to pokemon_move.name, pokemon_move %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>None</li>
+  <% end %>
+</ul>

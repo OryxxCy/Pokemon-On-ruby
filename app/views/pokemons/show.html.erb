@@ -1,13 +1,19 @@
-<h2>
+<h1>
   <%= @pokemon.name%>
-</h2>
+</h1>
 <p>
   <%= @pokemon.description%>
 </p>
-<h3>
+<h2>
   Stats
-</h3>
+</h2>
 <ul>
+  <li>
+    Type:
+    <% @pokemon_types.each do |pokemon_type| %>
+      <%= pokemon_type.type.name%>
+    <% end %>
+  </li>
   <li>
     HP: <%= @pokemon.hp%>
   </li>
@@ -18,15 +24,22 @@
     Defense: <%= @pokemon.defense%>
   </li>
   <li>
-    Special Attack:<%= @pokemon.special_attack%>
+    Special Attack: <%= @pokemon.special_attack%>
   </li>
   <li>
-    Special Defense:<%= @pokemon.special_defense%>
+    Special Defense: <%= @pokemon.special_defense%>
   </li>
   <li>
-    Speed:<%= @pokemon.speed%>
+    Speed: <%= @pokemon.speed%>
   </li>
 </ul>
-
-
-
+<h2>
+  Moves
+</h2>
+<ul>
+  <% @pokemon_moves.each do |pokemon_move| %>
+    <li>
+      <%= link_to pokemon_move.move.name, pokemon_move.move %>
+    </li>
+  <% end %>
+</ul>

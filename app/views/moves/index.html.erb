@@ -1,2 +1,9 @@
-<h1>Moves#index</h1>
-<p>Find me in app/views/moves/index.html.erb</p>
+<h1>Generation 1 Moves</h1>
+
+<ul>
+  <% @moves.each do |move| %>
+    <li>
+      <%= link_to move.name, move%>
+    </li>
+  <% end%>
+</ul>
