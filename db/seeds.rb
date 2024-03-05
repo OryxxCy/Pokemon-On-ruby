@@ -99,3 +99,19 @@ moves.first(165).each do |move|
     puts "Invalid Move #{move['id']}"
   end
 end
+
+pokemon_type_csv = Rails.root.join("db/pokemon_types.csv")
+pokemon_type_csv_data = File.read(pokemon_type_csv)
+pokemon_types = CSV.parse(pokemon_type_csv_data, headers: true, encoding: "utf-8")
+
+pokemon_types.each do |pokemon_type|
+  pokemon = Pokemon.find_by(id: pokemon_type['pokemon_id'].to_i)
+  type = Type.find_by(id: pokemon_type['type_id'].to_i)
+
+  if pokemon && type
+    new_pokemon_type = PokemonType.create(
+      pokemon_id: pokemon.id,
+      type_id: type.id
+    )
+  end
+end
