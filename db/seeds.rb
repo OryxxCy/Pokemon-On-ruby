@@ -1,10 +1,10 @@
 require 'csv'
 
+PokemonMove.delete_all
+PokemonType.delete_all
 Move.delete_all
 Pokemon.delete_all
 Type.delete_all
-PokemonMove.delete_all
-PokemonType.delete_all
 
 pokemon_csv = Rails.root.join("db/pokemon.csv")
 pokemon_csv_data = File.read(pokemon_csv)
@@ -113,5 +113,25 @@ pokemon_types.each do |pokemon_type|
       pokemon_id: pokemon.id,
       type_id: type.id
     )
+  end
+end
+
+pokemon_move_csv = Rails.root.join("db/pokemon_moves.csv")
+pokemon_move_csv_data = File.read(pokemon_move_csv)
+pokemon_moves = CSV.parse(pokemon_move_csv_data, headers: true, encoding: "utf-8")
+
+pokemon_moves.each do |pokemon_move|
+  pokemon = Pokemon.find_by(id: pokemon_move['pokemon_id'].to_i)
+  move = Move.find_by(id: pokemon_move['move_id'].to_i)
+
+  if pokemon && move
+    new_pokemon_move = PokemonMove.create(
+      pokemon_id: pokemon.id,
+      move_id: move.id
+    )
+  end
+
+  if pokemon_move['pokemon_id'].to_i == 152
+    break
   end
 end
