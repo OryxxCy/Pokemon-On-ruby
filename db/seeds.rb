@@ -24,7 +24,7 @@ pokemons.first(151).each do |pokemon|
 
   pokemon_description = pokemon_descriptions.find do |description|
     description['species_id'].to_i == pokemon['species_id'].to_i &&
-    description['version_id'].to_i == 7 &&
+    description['version_id'].to_i == 9 &&
     description['language_id'].to_i == 9
   end
 
