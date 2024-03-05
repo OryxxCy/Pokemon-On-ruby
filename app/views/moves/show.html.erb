@@ -9,7 +9,7 @@
 </h2>
 <ul>
   <li>
-    Type: <%= @move.type.name%>
+    Type: <%= link_to @move.type.name, @move.type%>
   </li>
   <li>
     Power: <%= @move.power%>
@@ -25,7 +25,7 @@
   </li>
 </ul>
 <h2>
-  Pokemons
+  Pokemons that can learn <%= @move.name%>
 </h2>
 <ul>
   <% @pokemon_moves.each do |pokemon_move| %>

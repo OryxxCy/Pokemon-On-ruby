@@ -11,7 +11,7 @@
   <li>
     Type:
     <% @pokemon_types.each do |pokemon_type| %>
-      <%= pokemon_type.type.name%>
+      <%= link_to pokemon_type.type.name, pokemon_type.type%>
     <% end %>
   </li>
   <li>
@@ -34,7 +34,7 @@
   </li>
 </ul>
 <h2>
-  Moves
+  Moves that <%= @pokemon.name%> can learn.
 </h2>
 <ul>
   <% @pokemon_moves.each do |pokemon_move| %>

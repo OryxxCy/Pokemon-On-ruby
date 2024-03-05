@@ -1,0 +1,27 @@
+<h1>Generation 1 Pokedex</h1>
+<h2>
+  Pokemons
+</h2>
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <%  pokemon_moves = PokemonMove.where(pokemon_id: pokemon.id)%>
+    <% pokemon_types = PokemonType.where(pokemon_id: pokemon.id)%>
+    <li>
+      <%= link_to pokemon.name, pokemon%>
+      <% pokemon_types.each do |pokemon_type| %>
+        <%= link_to pokemon_type.type.name, pokemon_type.type%>
+      <% end %>
+      <%= pokemon_moves.count %>
+    </li>
+  <% end%>
+</ul>
+<h2>
+  Moves
+</h2>
+<ul>
+  <% @moves.each do |move| %>
+    <li>
+      <%= link_to move.name, move%>
+    </li>
+  <% end%>
+</ul>
