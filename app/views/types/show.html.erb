@@ -1,15 +1,15 @@
 <% content_for(:html_title) {@type.name}%>
 <h1>
-  <%= @type.name%> type moves and pokemons
+  <%= @type.name.capitalize%> type moves and pokemons
 </h1>
 <h2>
   Pokemons
 </h2>
 <ul>
-  <% if @pokemon_types.present? %>
-    <% @pokemon_types.each do |pokemon_type| %>
+  <% if @type.pokemons.present? %>
+    <% @type.pokemons.each do |pokemon| %>
       <li>
-        <%= link_to pokemon_type.pokemon.name, pokemon_type.pokemon %>
+        <%= link_to pokemon.name, pokemon %>
       </li>
     <% end %>
   <% else %>
@@ -20,10 +20,10 @@
   Moves
 </h2>
 <ul>
-  <% if @pokemon_moves.present? %>
-    <% @pokemon_moves.each do |pokemon_move| %>
+  <% if @type.moves.present? %>
+    <% @type.moves.each do |move| %>
       <li>
-        <%= link_to pokemon_move.name, pokemon_move %>
+        <%= link_to move.name, move %>
       </li>
     <% end %>
   <% else %>

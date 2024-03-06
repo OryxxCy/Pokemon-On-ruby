@@ -1,6 +1,7 @@
 <% content_for(:html_title) {@pokemon.name}%>
 <h1>
   <%= @pokemon.name%>
+  <%= image_tag("sprites/#{@pokemon.id}.png") %>
 </h1>
 <p>
   <%= @pokemon.description%>
@@ -11,8 +12,8 @@
 <ul>
   <li>
     Type:
-    <% @pokemon_types.each do |pokemon_type| %>
-      <%= link_to pokemon_type.type.name, pokemon_type.type%>
+    <% @pokemon.types.each do |pokemon_type| %>
+      <%= link_to pokemon_type.name, pokemon_type%>
     <% end %>
   </li>
   <li>
@@ -38,9 +39,9 @@
   Moves that <%= @pokemon.name%> can learn.
 </h2>
 <ul>
-  <% @pokemon_moves.each do |pokemon_move| %>
+  <% @pokemon.moves.each do |pokemon_move| %>
     <li>
-      <%= link_to pokemon_move.move.name, pokemon_move.move %>
+      <%= link_to pokemon_move.name, pokemon_move %>
     </li>
   <% end %>
 </ul>

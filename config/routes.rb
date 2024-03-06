@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "home#index"
-  resources :pokemons, only: [:index, :show]
+  resources :pokemons, only: [:index, :show] do
+
+  end
   resources :types, only: [:index, :show]
   resources :moves, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

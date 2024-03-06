@@ -29,7 +29,7 @@
   Pokemons that can learn <%= @move.name%>
 </h2>
 <ul>
-  <% @pokemon_moves.each do |pokemon_move| %>
-    <li><%= link_to pokemon_move.pokemon.name, pokemon_move.pokemon %></li>
+  <% @move.pokemons.each do |pokemon| %>
+    <li><%= link_to pokemon.name, pokemon %></li>
   <% end %>
 </ul>

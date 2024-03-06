@@ -5,6 +5,5 @@ class MovesController < ApplicationController
 
   def show
     @move = Move.find(params[:id])
-    @pokemon_moves = PokemonMove.where(move_id: @move.id)
   end
 end

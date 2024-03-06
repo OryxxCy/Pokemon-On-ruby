@@ -4,14 +4,12 @@
 </h2>
 <ul>
   <% @pokemons.each do |pokemon| %>
-    <%  pokemon_moves = PokemonMove.where(pokemon_id: pokemon.id)%>
-    <% pokemon_types = PokemonType.where(pokemon_id: pokemon.id)%>
     <li>
       <%= link_to pokemon.name, pokemon%>
-      <% pokemon_types.each do |pokemon_type| %>
-        <%= link_to pokemon_type.type.name, pokemon_type.type%>
+      <% pokemon.types.each do |pokemon_type| %>
+        <%= link_to pokemon_type.name, pokemon_type%>
       <% end %>
-      <%= pokemon_moves.count %>
+      <%= pokemon.moves.count %>
     </li>
   <% end%>
 </ul>

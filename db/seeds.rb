@@ -33,7 +33,7 @@ pokemons.first(151).each do |pokemon|
   end
 
   new_pokemon.id = pokemon['species_id']
-  new_pokemon.name = pokemon['identifier']
+  new_pokemon.name = pokemon['identifier'].capitalize
   new_pokemon.description = pokemon_description['flavor_text']
 
   pokemon_stats.each do |stat|
@@ -57,7 +57,7 @@ type_csv_data = File.read(type_csv)
 types = CSV.parse(type_csv_data, headers: true, encoding: "utf-8")
 
 types.first(18).each do |type|
-  new_type = Type.create(id: type['id'], name: type['identifier'])
+  new_type = Type.create(id: type['id'], name: type['identifier'].capitalize)
 
   puts "Invalid Type" unless new_type&.valid?
 end
@@ -76,7 +76,7 @@ moves.first(165).each do |move|
   if type
     new_move = type.moves.new
     new_move.id = move['id']
-    new_move.name = move['identifier']
+    new_move.name = move['identifier'].capitalize
 
     move_description = move_descriptions.find do |description|
       description['move_id'].to_i == move['id'].to_i &&
