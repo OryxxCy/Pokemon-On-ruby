@@ -5,6 +5,7 @@
 <ul>
   <% @pokemons.each do |pokemon| %>
     <li>
+      <%= image_tag("sprites/#{pokemon.id}.png") %>
       <%= link_to pokemon.name, pokemon%>
       <% pokemon.types.each do |pokemon_type| %>
         <%= link_to pokemon_type.name, pokemon_type%>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: "home#index"
   resources :pokemons, only: [:index, :show] do
-
+    collection do
+      get "search"
+    end
   end
   resources :types, only: [:index, :show]
   resources :moves, only: [:index, :show]
