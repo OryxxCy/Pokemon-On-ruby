@@ -1,26 +1,34 @@
-<h1>Generation 1 Pokedex</h1>
-<h2>
-  Pokemons
-</h2>
-<ul>
-  <% @pokemons.each do |pokemon| %>
-    <li>
-      <%= image_tag("sprites/#{pokemon.id}.png") %>
-      <%= link_to pokemon.name, pokemon%>
-      <% pokemon.types.each do |pokemon_type| %>
-        <%= link_to pokemon_type.name, pokemon_type%>
-      <% end %>
-      <%= pokemon.moves.count %>
-    </li>
-  <% end%>
-</ul>
-<h2>
-  Moves
-</h2>
-<ul>
-  <% @moves.each do |move| %>
-    <li>
-      <%= link_to move.name, move%>
-    </li>
-  <% end%>
-</ul>
+<div class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Generation 1 Pokedex</h1>
+
+    <div class="columns">
+      <div class="column">Pokemon</div>
+      <div class="column">Type</div>
+      <div class="column">Number of moves</div>
+    </div>
+
+    <% @pokemons.each do |pokemon| %>
+      <div class="columns">
+        <div class="column">
+          <div class="box">
+            <%= image_tag("sprites/#{pokemon.id}.png" , class: 'image is-64x64')%>
+            <%= link_to pokemon.name, pokemon, class: 'has-text-centered is-size-5 has-text-weight-semibold'%>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <% pokemon.types.each do |pokemon_type| %>
+              <%= link_to pokemon_type.name, pokemon_type, class: 'tag is-primary is-rounded is-uppercase mr-1'%>
+            <% end %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <%= pokemon.moves.count %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,11 +1,21 @@
-<p>
-  Pokemons found when searching for: <%= params[:keywords]%>
-</p>
-<ul>
-  <% @pokemons.each do |pokemon|%>
-    <li>
-      <%= image_tag("sprites/#{pokemon.id}.png") %>
-      <%= link_to pokemon.name, pokemon%>
-    </li>
-  <% end%>
-</ul>
+<% if @pokemons.count != 0 %>
+  <p>
+    <%= pluralize(@pokemons.count, "Pokemon")%> found when searching for "<%= params[:keywords]%>"
+  </p>
+  <ul>
+    <% @pokemons.each do |pokemon|%>
+      <li>
+        <%= image_tag("sprites/#{pokemon.id}.png") %>
+        <%= link_to pokemon.name, pokemon%>
+        <% pokemon.types.each do |pokemon_type| %>
+          <%= link_to pokemon_type.name, pokemon_type%>
+        <% end %>
+      </li>
+    <% end%>
+  </ul>
+<% else %>
+  <p>
+    No pokemon found when searching for "<%= params[:keywords]%>"
+  </p>
+<% end %>
+

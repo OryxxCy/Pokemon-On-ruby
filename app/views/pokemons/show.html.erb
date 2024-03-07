@@ -1,47 +1,44 @@
-<% content_for(:html_title) {@pokemon.name}%>
-<h1>
-  <%= @pokemon.name%>
-  <%= image_tag("sprites/#{@pokemon.id}.png") %>
-</h1>
-<p>
-  <%= @pokemon.description%>
-</p>
-<h2>
-  Stats
-</h2>
-<ul>
-  <li>
-    Type:
-    <% @pokemon.types.each do |pokemon_type| %>
-      <%= link_to pokemon_type.name, pokemon_type%>
-    <% end %>
-  </li>
-  <li>
-    HP: <%= @pokemon.hp%>
-  </li>
-  <li>
-    Attack: <%= @pokemon.attack%>
-  </li>
-  <li>
-    Defense: <%= @pokemon.defense%>
-  </li>
-  <li>
-    Special Attack: <%= @pokemon.special_attack%>
-  </li>
-  <li>
-    Special Defense: <%= @pokemon.special_defense%>
-  </li>
-  <li>
-    Speed: <%= @pokemon.speed%>
-  </li>
-</ul>
-<h2>
-  Moves that <%= @pokemon.name%> can learn.
-</h2>
-<ul>
-  <% @pokemon.moves.each do |pokemon_move| %>
-    <li>
-      <%= link_to pokemon_move.name, pokemon_move %>
-    </li>
-  <% end %>
-</ul>
+<% content_for(:html_title) { @pokemon.name } %>
+
+<div class="section">
+  <div class="container">
+    <div class="box">
+      <h1 class="title">
+        <%= image_tag("sprites/#{@pokemon.id}.png", class: 'image is-128x128 mr-3') %>
+        <%= @pokemon.name %>
+      </h1>
+      <p class="subtitle">
+        <%= @pokemon.description %>
+      </p>
+    </div>
+
+    <div class="box">
+      <h2 class="subtitle">Stats</h2>
+      <ul>
+        <li>
+          <strong>Type:</strong>
+          <% @pokemon.types.each do |pokemon_type| %>
+            <%= link_to pokemon_type.name, pokemon_type, class: 'mr-2' %>
+          <% end %>
+        </li>
+        <li><strong>HP:</strong> <%= @pokemon.hp %></li>
+        <li><strong>Attack:</strong> <%= @pokemon.attack %></li>
+        <li><strong>Defense:</strong> <%= @pokemon.defense %></li>
+        <li><strong>Special Attack:</strong> <%= @pokemon.special_attack %></li>
+        <li><strong>Special Defense:</strong> <%= @pokemon.special_defense %></li>
+        <li><strong>Speed:</strong> <%= @pokemon.speed %></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2 class="subtitle">Moves that <%= @pokemon.name %> can learn.</h2>
+      <ul>
+        <% @pokemon.moves.each do |pokemon_move| %>
+          <li>
+            <%= link_to pokemon_move.name, pokemon_move %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

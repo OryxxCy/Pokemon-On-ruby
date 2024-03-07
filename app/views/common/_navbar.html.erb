@@ -1,8 +1,31 @@
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path%></li>
-    <li><%= link_to "Pokemons", pokemons_path%></li>
-    <li><%= link_to "Moves", moves_path%></li>
-    <li><%= link_to "Types", types_path%></li>
-  </ul>
-</nav>
+<header>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href ="<%= root_path %>">
+        <%= image_tag("Pokeball.jpg") %>
+        Gen 1 Pokedex
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href ="<%= pokemons_path %>">
+          Pokemons
+        </a>
+        <a class="navbar-item" href ="<%= moves_path %>">
+          Moves
+        </a>
+        <a class="navbar-item" href ="<%= types_path %>">
+          Types
+        </a>
+      </div>
+      <div class="navbar-end">
+        <%= form_with(url: search_pokemons_path, method: :get, local: true) do %>
+          <div class="navbar-item">
+            <%= text_field_tag(:keywords, nil, class: "input is-primary", placeholder: "Search for a pokemon")%>
+            <%= submit_tag("Search", class: "button is-primary")%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>

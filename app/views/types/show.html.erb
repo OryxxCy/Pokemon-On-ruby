@@ -9,11 +9,12 @@
   <% if @type.pokemons.present? %>
     <% @type.pokemons.each do |pokemon| %>
       <li>
+        <%= image_tag("sprites/#{pokemon.id}.png") %>
         <%= link_to pokemon.name, pokemon %>
       </li>
     <% end %>
   <% else %>
-    <li>None</li>
+    <p>None</p>
   <% end %>
 </ul>
 <h2>
@@ -27,6 +28,6 @@
       </li>
     <% end %>
   <% else %>
-    <li>None</li>
+    <p>None</p>
   <% end %>
 </ul>
