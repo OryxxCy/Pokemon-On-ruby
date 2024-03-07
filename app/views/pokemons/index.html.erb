@@ -4,11 +4,11 @@
     <% @pokemons.each do |pokemon| %>
       <li class="column is-one-third">
         <div class="box">
-          <%= image_tag("sprites/#{pokemon.id}.png", class: 'image is-128x128') %>
+          <%= image_tag("sprites/#{pokemon.id}.png", alt: "#{pokemon.name} Sprite", class: 'image is-128x128') %>
           <p class="title is-5"><%= link_to pokemon.name, pokemon %></p>
           <p class="content"><%= pokemon.description %></p>
         </div>
       </li>
     <% end %>
   </ul>
-</div>
+</section>

@@ -9,14 +9,14 @@
       <div class="columns">
         <div class="column">
           <div class="box">
-            <%= image_tag("sprites/#{pokemon.id}.png" , class: 'image is-64x64')%>
+            <%= image_tag("sprites/#{pokemon.id}.png" , alt: "#{pokemon.name} Sprite", class: 'image is-64x64')%>
             <%= link_to pokemon.name, pokemon, class: 'has-text-centered is-size-5'%>
           </div>
         </div>
         <div class="column">
           <div class="box">
             <% pokemon.types.each do |pokemon_type| %>
-              <%= link_to image_tag("types/#{pokemon_type.name.downcase}.png"), pokemon_type %>
+              <%= link_to image_tag("types/#{pokemon_type.name.downcase}.png", alt: "#{pokemon_type.name} Image"), pokemon_type %>
             <% end %>
           </div>
         </div>

@@ -2,7 +2,7 @@
 <ul>
   <% @types.each do |type| %>
     <li>
-      <%= link_to image_tag("types/#{type.name.downcase}.png"), type %>
+      <%= link_to image_tag("types/#{type.name.downcase}.png", alt: "#{type.name} Image"), type %>
     </li>
   <% end%>
 </ul>

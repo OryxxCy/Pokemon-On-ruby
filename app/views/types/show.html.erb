@@ -9,7 +9,7 @@
       <% if @type.pokemons.present? %>
         <% @type.pokemons.each do |pokemon| %>
           <li class="column is-one-quarter">
-            <%= image_tag("sprites/#{pokemon.id}.png") %>
+            <%= image_tag("sprites/#{pokemon.id}.png", alt: "#{pokemon.name} Sprite") %>
             <%= link_to pokemon.name, pokemon %>
           </li>
         <% end %>
@@ -36,4 +36,4 @@
       <% end %>
     </ul>
   </div>
-</div>
+</section>

@@ -2,7 +2,7 @@
 <section class="section">
   <div class="box">
     <h1 class="title">
-      <%= image_tag("sprites/#{@pokemon.id}.png", class: 'image is-128x128') %>
+      <%= image_tag("sprites/#{@pokemon.id}.png", alt: "#{@pokemon.name} Sprite", class: 'image is-128x128') %>
       <%= @pokemon.name %>
     </h1>
     <p class="subtitle">
@@ -15,7 +15,7 @@
       <li>
         <strong>Type:</strong>
         <% @pokemon.types.each do |pokemon_type| %>
-          <%= link_to image_tag("types/#{pokemon_type.name.downcase}.png"), pokemon_type %>
+          <%= link_to image_tag("types/#{pokemon_type.name.downcase}.png" , alt: "#{pokemon_type.name} Image"), pokemon_type %>
         <% end %>
       </li>
       <li><strong>HP:</strong> <%= @pokemon.hp %></li>
@@ -36,4 +36,4 @@
       <% end %>
     </ul>
   </div>
-</div>
+</section>
