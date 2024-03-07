@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @pokemons = Pokemon.limit(10)
-    @moves = Move.limit(10)
+    @pokemons = Pokemon.all
+  end
+
+  def about
+
   end
 end

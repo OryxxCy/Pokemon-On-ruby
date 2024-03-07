@@ -1,18 +1,15 @@
-<div class="section">
-  <div class="container">
-    <h1 class="title">Generation 1 Moves</h1>
-
-    <ul>
-      <% @moves.each do |move| %>
-        <li class="box">
-          <h2 class="subtitle">
-            <%= link_to move.name, move %>
-          </h2>
-          <p>
-            <%= move.description %>
-          </p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<section class="section">
+  <h1 class="title">Generation 1 Moves</h1>
+  <ul>
+    <% @moves.each do |move| %>
+      <li class="box">
+        <h2 class="subtitle">
+          <%= link_to move.name, move %>
+        </h2>
+        <p>
+          <%= move.description %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -1,33 +1,39 @@
 <% content_for(:html_title) {@type.name}%>
-<h1>
-  <%= @type.name.capitalize%> type moves and pokemons
-</h1>
-<h2>
-  Pokemons
-</h2>
-<ul>
-  <% if @type.pokemons.present? %>
-    <% @type.pokemons.each do |pokemon| %>
-      <li>
-        <%= image_tag("sprites/#{pokemon.id}.png") %>
-        <%= link_to pokemon.name, pokemon %>
-      </li>
-    <% end %>
-  <% else %>
-    <p>None</p>
-  <% end %>
-</ul>
-<h2>
-  Moves
-</h2>
-<ul>
-  <% if @type.moves.present? %>
-    <% @type.moves.each do |move| %>
-      <li>
-        <%= link_to move.name, move %>
-      </li>
-    <% end %>
-  <% else %>
-    <p>None</p>
-  <% end %>
-</ul>
+<section class="section">
+  <h1 class="title is-1">
+    <%= @type.name%> Type Moves and Pokemons
+  </h1>
+  <div class="box">
+    <h2 class="title">Pokemons</h2>
+    <ul class="columns is-multiline">
+      <% if @type.pokemons.present? %>
+        <% @type.pokemons.each do |pokemon| %>
+          <li class="column is-one-quarter">
+            <%= image_tag("sprites/#{pokemon.id}.png") %>
+            <%= link_to pokemon.name, pokemon %>
+          </li>
+        <% end %>
+      <% else %>
+        <li class="column">
+          <p>None</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="box">
+    <h2 class="title">Moves</h2>
+    <ul>
+      <% if @type.moves.present? %>
+        <% @type.moves.each do |move| %>
+          <li>
+            <%= link_to move.name, move %>
+          </li>
+        <% end %>
+      <% else %>
+        <li>
+          <p>None</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

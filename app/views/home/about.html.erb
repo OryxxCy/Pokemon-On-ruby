@@ -1,0 +1,39 @@
+<div class="section">
+  <div class="container">
+    <h1 class="title">About Gen 1 Pokedex</h1>
+    <div class="block">
+      <p>
+      This website has 151 pokemons and 165 moves from generation 1 of pokemon games.
+      Users would be able to search for a pokemon and look at the Information about that pokemon.
+      Users would also be able to check the moves and the pokemon that can learn that move.
+      </p>
+    </div>
+    <div class="block">
+      <p>
+      The source of the dataset is the csv files from <a href="https://github.com/veekun/pokedex/tree/master/pokedex/data/csv">Veekun Github</a>
+      </p>
+    </div>
+    <div class="block">
+      <p>
+      This is the ERD used to create this website.<br>
+      Tables: <br>
+      1. Pokemon Table : It contains the name, description and stats of a pokemon.<br>
+      2. Moves Table : It contains the name, description and the stats of a move.<br>
+      3. Type Table : It contains the name of the type.<br>
+      4. Pokemon_moves Table: It is a joiner table for pokemon and move many to many relationship.<br>
+      5. Pokemon_types Table: It is a joiner table for pokemon and type many to many relationship.<br>
+    </div>
+    <div class="block">
+      <p>
+      Table Relationships<br>
+      1. A pokemon can have 1 to many types.<br>
+      2. A pokemon can learn 1 to many moves.<br>
+      3. A move can be taught to 1 to many pokemons.<br>
+      4. A move have 1 to many types.<br>
+      5. A type can be in 1 to many pokemons.<br>
+      6. A type can be in 1 to many moves.<br>
+      </p>
+    </div>
+    <%= image_tag("PokemonERD.drawio.png") %>
+  </div>
+</div>

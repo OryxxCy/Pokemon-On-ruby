@@ -1,28 +1,22 @@
 <% content_for(:html_title) { @move.name } %>
-
-<div class="section">
-  <div class="container">
-    <h1 class="title"><%= @move.name %></h1>
-
-    <p class="content"><%= @move.description %></p>
-
-    <h2 class="subtitle">Move Information</h2>
-    <ul>
-      <li><strong>Type:</strong> <%= link_to @move.type.name, @move.type %></li>
-      <li><strong>Power:</strong> <%= @move.power %></li>
-      <li><strong>Accuracy:</strong> <%= @move.accuracy %></li>
-      <li><strong>PP:</strong> <%= @move.pp %></li>
-      <li><strong>Category:</strong> <%= @move.move_category %></li>
-    </ul>
-
-    <h2 class="subtitle">Pokemons that can learn <%= @move.name %></h2>
-    <ul class="columns is-multiline">
-      <% @move.pokemons.each do |pokemon| %>
-        <li class="column is-one-quarter">
-          <%= image_tag("sprites/#{pokemon.id}.png") %>
-          <p><%= link_to pokemon.name, pokemon %></p>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<section class="section">
+  <h1 class="title"><%= @move.name %></h1>
+  <p class="content"><%= @move.description %></p>
+  <h2 class="subtitle">Move Information</h2>
+  <ul>
+    <li><strong>Type:</strong> <%= link_to image_tag("types/#{@move.type.name.downcase}.png"), @move.type %></li>
+    <li><strong>Power:</strong> <%= @move.power %></li>
+    <li><strong>Accuracy:</strong> <%= @move.accuracy %></li>
+    <li><strong>PP:</strong> <%= @move.pp %></li>
+    <li><strong>Category:</strong> <%= @move.move_category %></li>
+  </ul>
+  <h2 class="title">Pokemons that can learn <%= @move.name %></h2>
+  <ul class="columns is-multiline">
+    <% @move.pokemons.each do |pokemon| %>
+      <li class="column is-one-quarter">
+        <%= image_tag("sprites/#{pokemon.id}.png") %>
+        <p><%= link_to pokemon.name, pokemon %></p>
+      </li>
+    <% end %>
+  </ul>
 </div>

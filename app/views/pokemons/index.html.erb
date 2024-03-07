@@ -1,17 +1,14 @@
-<div class="section">
-  <div class="container">
-    <h1 class="title has-text-centered">Generation 1 Pokemons</h1>
-
-    <ul class="columns is-multiline">
-      <% @pokemons.each do |pokemon| %>
-        <li class="column is-one-third">
-          <div class="box">
-            <%= image_tag("sprites/#{pokemon.id}.png", class: 'image is-128x128 mb-3') %>
-            <p class="title is-5"><%= link_to pokemon.name, pokemon %></p>
-            <p class="content"><%= pokemon.description %></p>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+<section class="section">
+  <h1 class="title has-text-centered">Generation 1 Pokemons</h1>
+  <ul class="columns is-multiline">
+    <% @pokemons.each do |pokemon| %>
+      <li class="column is-one-third">
+        <div class="box">
+          <%= image_tag("sprites/#{pokemon.id}.png", class: 'image is-128x128') %>
+          <p class="title is-5"><%= link_to pokemon.name, pokemon %></p>
+          <p class="content"><%= pokemon.description %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>

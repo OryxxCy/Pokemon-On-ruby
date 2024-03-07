@@ -1,25 +1,22 @@
 <div class="section">
-  <div class="container">
     <h1 class="title has-text-centered">Generation 1 Pokedex</h1>
-
     <div class="columns">
       <div class="column">Pokemon</div>
       <div class="column">Type</div>
       <div class="column">Number of moves</div>
     </div>
-
     <% @pokemons.each do |pokemon| %>
       <div class="columns">
         <div class="column">
           <div class="box">
             <%= image_tag("sprites/#{pokemon.id}.png" , class: 'image is-64x64')%>
-            <%= link_to pokemon.name, pokemon, class: 'has-text-centered is-size-5 has-text-weight-semibold'%>
+            <%= link_to pokemon.name, pokemon, class: 'has-text-centered is-size-5'%>
           </div>
         </div>
         <div class="column">
           <div class="box">
             <% pokemon.types.each do |pokemon_type| %>
-              <%= link_to pokemon_type.name, pokemon_type, class: 'tag is-primary is-rounded is-uppercase mr-1'%>
+              <%= link_to image_tag("types/#{pokemon_type.name.downcase}.png"), pokemon_type %>
             <% end %>
           </div>
         </div>
@@ -30,5 +27,4 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>
